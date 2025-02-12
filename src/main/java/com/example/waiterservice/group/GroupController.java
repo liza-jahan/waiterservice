@@ -1,4 +1,4 @@
-package group;
+package com.example.waiterservice.group;
 
 import com.example.waiterservice.model.request.GroupRequest;
 import com.example.waiterservice.model.response.APIResponse;
@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -35,6 +34,12 @@ public class GroupController {
 
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
+    @PostMapping("/groups/{groupName}/add-user")
+    public ResponseEntity<String> addUserToGroup(@PathVariable String groupName, @RequestParam UUID userId) {
+        groupService.addUserToGroup(groupName, userId);
+        return ResponseEntity.ok("User added to group successfully");
+    }
+
 
     @DeleteMapping("/delete/{groupId}")
     public ResponseEntity<Void> deleteGroup(@PathVariable UUID groupId) {
@@ -45,7 +50,7 @@ public class GroupController {
 
     @GetMapping("/show-group")
     public ResponseEntity<List<GroupEntity>> getAllGroup() {
-        List<GroupEntity> groupEntities = groupService.getAllGroups();
+        List<GroupEntity> groupEntities = groupService.getAllGroupsWithMembers();
         return new ResponseEntity<>(groupEntities, HttpStatus.OK);
     }
 }

@@ -1,9 +1,11 @@
-package com.example.waiterservice.service;
+package com.example.waiterservice.serviceImp;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,8 @@ import java.util.function.Function;
 
 @Service
 public class JWTServiceImp {
-    private String secretkey = "";
+    @Value("${jwt.secret}")
+    private String secretkey;
 
     public JWTServiceImp() {
 
@@ -66,6 +69,10 @@ public class JWTServiceImp {
                 .getBody(); // Get the claims from the JWT
     }
 
+    //    public boolean validateToken(String token, UserDetails userDetails) {
+//        final String userName = extractUserName(token);
+//        return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));
+//    }
     public boolean validateToken(String token, UserDetails userDetails) {
         final String userName = extractUserName(token);
         return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));

@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Dashboard</title>
 </head>
 <body>
-$END$
+<button id="logoutBtn">Logout</button>
+
+<script>
+  // Check if the user is logged in
+  const token = localStorage.getItem('jwtToken');
+  if (!token) {
+    window.location.href = '/login'; // Redirect if not logged in
+  }
+
+  // Logout functionality
+  document.getElementById('logoutBtn').addEventListener('click', function () {
+    localStorage.removeItem('jwtToken'); // Clear JWT
+    window.location.href = '/login';     // Redirect to login
+  });
+</script>
 </body>
 </html>

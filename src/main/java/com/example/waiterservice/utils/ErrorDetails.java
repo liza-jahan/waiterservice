@@ -1,4 +1,4 @@
-package com.example.deviceshop.utils;
+package com.example.waiterservice.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

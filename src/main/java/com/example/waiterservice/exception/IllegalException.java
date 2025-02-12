@@ -1,4 +1,4 @@
-package com.example.deviceshop.exception;
+package com.example.waiterservice.exception;
 
 public class IllegalException extends BaseException{
 

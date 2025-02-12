@@ -1,10 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" th:href="@{/css/waiterProfile.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/responsive.css}" />
 </head>
+
 <body>
-$END$
+<header class="header_section">
+    <div class="header_top">
+        <div class="container-fluid">
+            <div class="contact_nav">
+                <a href="tel:+8801936622146">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <span>Call : +8801936622146</span>
+                </a>
+                <a href="mailto:jingokit@gmail.com">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>Email : jingokit@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/images/logo--2.png}" style="height: 80px; width: 80px;" alt="Logo">
+                </a>
+                <a class="navbar-brand" th:href="@{/}">
+                    <span style="margin-left: 20px;">সেবাই প্রথম</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class=""> </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/show-group-list}">Group</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/create}"> Create Group</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/logout}">LogOut</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section class="ddd">
+    <div class="profile-container">
+        <div class="profile-card">
+            <h2 id="profileTitle">My Profile</h2>
+
+            <!-- Profile Image Section -->
+            <!-- Profile Image Section -->
+            <div class="profile-image-container">
+                <img id="profileImage" th:src="@{/images/banglaWaiter-14.jpg}" alt="Profile Image">
+                <label for="imageInput" id="imageLabel" class="image-change-icon">
+                    📷 <input type="file" id="imageInput" class="image-input" onchange="updateProfileImage()">
+                </label>
+            </div>
+
+
+            <!-- Profile Information Section -->
+            <div class="profile-info">
+                <div class="profile-info-row" th:if="${userProfile != null}">
+                    <div class="profile-info-item">
+                        <label>Name: </label>
+
+                        <span id="profileName" th:text="${userProfile.name}"></span>
+                        <div class="edit-form" id="nameEditForm" style="display:none;">
+                            <input type="text" id="editName" value="John Doe" >
+                        </div>
+                    </div>
+
+                    <div class="profile-info-item">
+                        <label>Date of Birth: </label>
+                        <span id="profileDob" th:text="${#dates.format(userProfile.dateOfBirth, 'yyyy-MM-dd')}"></span>
+                        <div class="edit-form" id="dobEditForm" style="display:none;">
+                            <input type="date" id="editDob" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-info-row">
+                    <div class="profile-info-item">
+                        <label>Email: </label>
+                        <span id="profileEmail" th:text="${userProfile.email}"></span>
+                        <div class="edit-form" id="emailEditForm" style="display:none;">
+                            <input type="email" id="editEmail" value="johndoe@example.com">
+                        </div>
+                    </div>
+
+                    <div class="profile-info-item">
+                        <label>Phone: </label>
+                        <span id="profilePhone"  th:text="${userProfile.phoneNumber}"></span>
+                        <div class="edit-form" id="phoneEditForm" style="display:none;">
+                            <input type="tel" id="editPhone">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-info-row">
+                    <div class="profile-info-item">
+                        <label>Gender: </label>
+                        <span id="profileGender" th:text="${userProfile.gender}"></span>
+
+                        <div class="edit-form" id="genderEditForm" style="display:none;">
+                            <select id="editGender">
+                                <option value="Male" th:selected="${userProfile.gender == 'Male'}">Male</option>
+                                <option value="Female" th:selected="${userProfile.gender == 'Female'}">Female</option>
+                                <option value="Other" th:selected="${userProfile.gender == 'Other'}">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="profile-info-item">
+                        <label>Occupation: </label>
+                        <span id="profileOccupation" th:text="${userProfile.occupation}">Waiter</span>
+                        <div class="edit-form" id="occupationEditForm" style="display:none;">
+                            <input type="text" id="editOccupation" value="Waiter">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-info-row">
+                    <div class="profile-info-item">
+                        <label>Address: </label>
+                        <span id="profileAddress" th:text="${userProfile.state}"></span>
+                        <div class="edit-form" id="addressEditForm" style="display:none;">
+                            <input type="text" id="editAddress" value="123 Street, City, Country">
+                        </div>
+                    </div>
+
+                    <div class="profile-info-item">
+                        <label>Bkash Number: </label>
+                        <span id="profileBkash"  th:text="${userProfile.bkash}"></span>
+                        <div class="edit-form" id="bkashEditForm" style="display:none;">
+                            <input type="tel" id="editBkash" value="+8801XXXXXXXXX">
+                        </div>
+                    </div>
+                    <div class="profile-info-item">
+                        <label>Bkash Number: </label>
+                        <span id="profileNID"  th:text="${userProfile.nationalIdCard}"></span>
+                        <div class="edit-form" id="nidEditForm" style="display:none;">
+                            <input type="tel" id="editNid" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Button and Submit -->
+            <button id="editButton" onclick="enableEditFields()">Edit</button>
+            <div id="actionButtons" style="display: none;">
+                <button id="submitButton" onclick="submitAllChanges()">Submit</button>
+                <button id="cancelButton" onclick="cancelEdit()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- info section -->
+<section class="info_section ">
+    <div class="container">
+        <h4>
+            Get In Touch
+        </h4>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="info_items">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box ">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        87-92/B,Green Road, Farmgate, Dhaka, Bangladesh
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box ">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        +8801936622146
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        jingokit@gmail.com
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="social-box">
+        <h4>
+            Follow Us
+        </h4>
+        <div class="box">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- end info_section -->
+
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <p>
+            &copy; <span id="displayDateYear"></span> All Rights Reserved By
+            <a href="https://www.jingokit.com">JingoKit</a>
+        </p>
+    </div>
+</footer>
+<!-- footer section -->
+
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+</script>
+<script th:src="@{/js/custom.js}"></script>
+<script th:src="@{/js/waiterProfile.js}"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+<!-- End Google Map -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<script>
+    // Function to load user profile data
+    function loadUserProfile() {
+        const userId = localStorage.getItem("userId"); // ✅ Get the user ID from localStorage
+        const jwtToken = localStorage.getItem("jwtToken"); // ✅ Get the JWT token
+
+        if (!userId || !jwtToken) {
+            console.error("User ID or JWT token is missing.");
+            return;
+        }
+
+        fetch(`/profile/${userId}`, { // ✅ Use the actual user ID here
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + jwtToken // ✅ Send the JWT token
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch profile data.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data) {
+                    // ✅ Populate the profile information in the HTML
+                    document.getElementById('profileName').textContent = data.name || '';
+                    document.getElementById('profileEmail').textContent = data.email || '';
+                    document.getElementById('profilePhoneNumber').textContent = data.phoneNumber || '';
+                    document.getElementById('profileGender').textContent = data.gender || '';
+                    document.getElementById('profileOccupation').textContent = data.occupation || '';
+                    document.getElementById('profileDateOfBirth').textContent = data.dateOfBirth || '';
+                    document.getElementById('profileNationalIdCard').textContent = data.nationalIdCard || '';
+                    document.getElementById('profileBkash').textContent = data.bkash || '';
+                    document.getElementById('profileState').textContent = data.state || '';
+                }
+            })
+            .catch(error => console.error('Error fetching profile data:', error));
+    }
+
+    // ✅ Load the user profile data when the page loads
+    window.onload = loadUserProfile;
+</script>
+
+
 </body>
+
 </html>

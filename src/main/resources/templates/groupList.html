@@ -1,10 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+  <!--    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />-->
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+  <link rel="stylesheet" th:href="@{/css/Regisration.css}" />
+  <link rel="stylesheet" th:href="@{/css/groupListStyle.css}" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+  <title>Responsive Registration Form</title>
 </head>
+
 <body>
-$END$
+<div>
+  <div class="hero_area">
+    <!-- header section starts -->
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_nav">
+            <a href="tel:+8801936622146">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>Call: +8801936622146</span>
+            </a>
+            <a href="mailto:jingokit@gmail.com">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>Email: jingokit@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" th:href="@{/}">
+              <img th:src="@{/images/logo--2.png}" style="height: 80px; width: 80px;" alt="Logo">
+            </a>
+            <a class="navbar-brand" th:href="@{/}">
+              <span style="margin-left: 20px;">সেবাই প্রথম</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" th:href="@{/userinfoTable}">User List</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" th:href="@{/show-group-list}">Group List</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" th:href="@{/guest-user-info}">Contact List</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/create}"> Create Group</a></li>
+
+                <li class="nav-item"><a class="nav-link" th:href="@{/logout}">LogOut</a></li>
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- header section ends -->
+  </div>
+  <br>
+
+
+</div>
+<section style="background-color:white; padding: 20px;">
+  <h1 style="text-align:center; font-size: 2.5rem; color: #444; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1.5px; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);">
+    Group List with Members
+  </h1><br>
+
+  <div th:each="group : ${groups}" style="margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between; height: auto; max-width: 800px; margin: 0 auto;">
+    <h2 th:text="${group.groupName}" style="font-size: 1.5rem; color: #444; margin-bottom: 10px;">Group Name</h2><br>
+
+    <ul style="list-style: none; padding-left: 0; flex-grow: 1;">
+      <li th:each="member : ${group.users}" style="display: flex; justify-content: space-between; align-items: center; padding: 8px; border-bottom: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9;">
+        <span th:text="${member.name}" style="font-weight: bold; color: #333;">Member Name</span>
+        <span th:text="${member.email}" style="font-style: italic; color: #666;">Member Email</span>
+
+        <!-- Member Delete Button -->
+        <form th:action="@{/deleteMember(groupId=${group.id}, userId=${member.id})}" method="post" style="margin: 0;">
+          <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+            Delete Member
+          </button>
+        </form>
+      </li>
+    </ul>
+
+    <!-- Group Delete Button at the bottom -->
+    <div style="display: flex; justify-content: center; margin-top: 10px;">
+      <form th:action="@{/delete-group}" method="post" style="margin-bottom: 40px;">
+        <!-- Add hidden input to pass groupId -->
+        <input type="hidden" th:value="${group.id}" name="groupId" />
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+          <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">
+            Delete Group
+          </button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<script th:src="@{/js/custom.js}"></script>
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+<script>
+  function deleteGroup(button) {
+    const groupId = button.getAttribute('data-group-id');
+    if (confirm("Are you sure you want to delete this group?")) {
+      fetch(`/delete-group?groupId=${groupId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+              .then(response => {
+                if (response.ok) {
+                  alert("Group deleted successfully.");
+                  location.reload(); // Reload the page to update the group list
+                } else {
+                  alert("Failed to delete the group.");
+                }
+              })
+              .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error deleting the group.');
+              });
+    }
+  }
+</script>
+
 </body>
+
 </html>

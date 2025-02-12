@@ -1,7 +1,7 @@
-package com.example.deviceshop.exception;
+package com.example.waiterservice.exception;
 
 
-import com.example.deviceshop.utils.ErrorDetails;
+import com.example.waiterservice.utils.ErrorDetails;
 
 public class IdentifierExistException  extends BaseException{
     public IdentifierExistException(String message, Throwable ex, String errorCode) {

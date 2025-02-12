@@ -1,2 +1,4 @@
-package com.example.waiterservice.desingController;public class UserDesingController {
+package com.example.waiterservice.desingController;
+
+public class UserDesingController {
 }

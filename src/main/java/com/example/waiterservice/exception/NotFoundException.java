@@ -1,4 +1,4 @@
-package com.example.deviceshop.exception;
+package com.example.waiterservice.exception;
 
 public class NotFoundException extends BaseException{
     public NotFoundException(String message, Throwable ex, String errorCode) {

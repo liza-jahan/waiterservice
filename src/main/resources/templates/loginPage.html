@@ -1,10 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/loginFormstyle.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+
+    <!-- font awesome style -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}"/>
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <!-- responsive style -->
 </head>
+
 <body>
-$END$
+<div class="hero_area">
+    <header class="header_section">
+        <div class="header_top">
+            <div class="container-fluid">
+                <div class="contact_nav">
+                    <a href="tel:+8801936622146">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>Call: +8801936622146</span>
+                    </a>
+                    <a href="mailto:jingokit@gmail.com">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span>Email: jingokit@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" th:href="@{/}">
+                        <img th:src="@{/images/logo--2.png}" style="height: 80px" width="80px" alt="Logo">
+                    </a>
+                    <a class="navbar-brand" th:href="@{/}">
+                        <span style="margin-left: 20px;">সেবাই প্রথম</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/home-page}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/about-us}">About us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/guest-registration-page}">Contact Us</a>
+                            </li>
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link" th:href="@{/logout}">Log out</a>-->
+<!--                            </li>-->
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- header section ends -->
+
+</div>
+
+
+<section
+        style="padding: 10px; height: auto; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center;">
+    <div style="flex: 1 1 300px; text-align: center;">
+        <img th:src="@{/images/waiter-styker.png}"
+             style="height: auto; max-width: 100%; border-radius: 10px; animation: fadeIn 1.5s;" alt="Waiter Styker">
+
+    </div>
+
+    <div style="flex: 1 1 300px; display: flex; justify-content: center; align-items: center;">
+        <div class="login-wrap"
+             style="width: 100%; max-width: 400px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px;">Login</h2>
+            <form id="loginForm">
+                <div class="form">
+
+
+                    <input type="email" placeholder="Email" name="email" id="email"
+                           style="width: 80%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ddd;"
+                           required>
+                    <input type="password" placeholder="Password" name="password" id="password"
+                           style="width: 80%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #ddd;"
+                           required>
+                    <button type="submit"
+                            style="width: 80%; padding: 10px; background-color: #378f7b; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                        Sign in
+                    </button>
+
+                    <a th:href="@{/user-registration-page}"
+                       style="display: block; text-align: center; margin-top: 10px; color: #378f7b; text-decoration: none;">
+                        <p style="margin: 0;">Don't have an account? Register</p>
+                    </a>
+                    <a th:href="@{/reset-password}">
+                        <p style="margin: 0;">Forgot Password?</p>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="flex: 1 1 300px;">
+        <div style="padding: 20px; background-color: #f9f9f9; border-radius: 10px; animation: fadeInUp 1.5s;">
+            <h3>
+                আপনার হাসি আমাদের অতিথিদের দিন উজ্জ্বল করতে পারে। <br> যোগ দিন আমাদের টিমে এবং একসাথে গড়ে তুলুন
+                সেরা অভিজ্ঞতা!
+            </h3>
+        </div>
+    </div>
+
+    <!-- Popup Success/Failure Message -->
+    <div id="popup"
+         style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div style="background-color: #fff; padding: 20px; border-radius: 10px; text-align: center;">
+            <p id="popupMessage" style="font-size: 18px;"></p>
+            <button onclick="closePopup()"
+                    style="padding: 10px; background-color: #378f7b; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Close
+            </button>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- info section -->
+<section class="info_section ">
+    <div class="container">
+        <h4>
+            Get In Touch
+        </h4>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="info_items">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box ">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        87-92/B,Green Road, Farmgate, Dhaka, Bangladesh
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box ">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        +8801936622146
+
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        jingokit@gmail.com
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="social-box">
+        <h4>
+            Follow Us
+        </h4> <div class="box">
+        <a href=""><i class="fab fa-facebook-f"></i></a>
+        <a href=""><i class="fab fa-twitter"></i></a>
+        <a href=""><i class="fab fa-youtube"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+    </div>
+    </div>
+</section>
+
+
+<!-- end info_section -->
+
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <p>
+            &copy; <span id="displayDateYear"></span> All Rights Reserved By
+            <a href="https://www.jingokit.com">JingoKit</a>
+        </p>
+    </div>
+</footer>
+<!-- footer section -->
+
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+</script>
+<script th:src="@{/js/custom.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+<!-- Google Map -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+<!-- End Google Map -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- AJAX Login Script -->
+<script>
+    $(document).ready(function () {
+        $("#loginForm").on("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const loginData = {
+                email: $("#email").val(),
+                password: $("#password").val()
+            };
+
+            // Send AJAX request
+            $.ajax({
+                url: "/login", // Backend endpoint
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(loginData), // Send data as JSON
+                success: function (response) {
+                    console.log("Full Response:", response); // Debug full response object
+
+                    // Check if 'results' and 'token' exist in the response
+                    if (response && response.results && response.results.token) {
+                        const jwtToken = response.results.token;
+                        const userId = response.results.id; // ✅ Get the user ID
+
+                        // Store the token and user ID in localStorage (for future API calls)
+                        localStorage.setItem("jwtToken", jwtToken);
+                        localStorage.setItem("userId", userId); // ✅ Store user ID
+
+                        // Display a success message
+                        $("#responseMessage").html(`
+                            <p style="color: green;">
+                                Login successful! You will be redirected shortly.
+                            </p>
+                        `);
+
+                        // ✅ Redirect using the actual user ID
+                        setTimeout(() => {
+                            window.location.href = `/profile/${userId}`; // ✅ Redirect to the real profile URL
+                        }, 2000);
+                    } else {
+                        // Handle the case where the token is not found in the response
+                        $("#responseMessage").html(`
+                            <p style="color: red;">Token not found in the response.</p>
+                        `);
+                    }
+                },
+                error: function (xhr) {
+                    // Handle error and display error message
+                    let errorMessage = "An error occurred. Please try again.";
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMessage = xhr.responseJSON.message;
+                    }
+                    $("#responseMessage").html(`
+                        <p style="color: red;">${errorMessage}</p>
+                    `);
+                }
+            });
+        });
+    });
+</script>
+
 </body>
+
 </html>

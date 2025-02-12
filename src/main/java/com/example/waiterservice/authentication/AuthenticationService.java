@@ -1,8 +1,10 @@
-package com.example.deviceshop.service;
+package com.example.waiterservice.authentication;
 
-import com.example.deviceshop.model.request.AuthenticationRequest;
+
+import com.example.waiterservice.model.request.AuthenticationRequest;
+import com.example.waiterservice.model.response.AuthenticationResponse;
 
 public interface AuthenticationService {
-    String loginUser(AuthenticationRequest authenticationRequest);
+    AuthenticationResponse loginUser(AuthenticationRequest authenticationRequest);
 
 }

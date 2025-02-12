@@ -1,8 +1,8 @@
-package com.example.deviceshop.exception;
+package com.example.waiterservice.exception;
 
 
-import com.example.deviceshop.dto.ErrorDTO;
-import com.example.deviceshop.model.response.APIResponse;
+import com.example.waiterservice.model.dto.ErrorDto;
+import com.example.waiterservice.model.response.APIResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,9 +19,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public APIResponse<?> handleMethodArgumentException(MethodArgumentNotValidException exception) {
-        List<ErrorDTO> errors = new ArrayList<>();
+        List<ErrorDto> errors = new ArrayList<>();
         exception.getBindingResult().getFieldErrors()
-                .forEach(error -> errors.add(new ErrorDTO(error.getField(), error.getDefaultMessage())));
+                .forEach(error -> errors.add(new ErrorDto(error.getField(), error.getDefaultMessage())));
 
         return APIResponse.builder()
                 .status(HttpStatus.BAD_REQUEST.getReasonPhrase())
@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
     public APIResponse<?> handleServiceException(IdentifierExistException exception) {
         APIResponse<?> serviceResponse = new APIResponse<>();
         serviceResponse.setStatus(HttpStatus.BAD_REQUEST.getReasonPhrase());
-        serviceResponse.setErrors(Collections.singletonList(new ErrorDTO(null, exception.getMessage(), exception.getErrorCode())));
+        serviceResponse.setErrors(Collections.singletonList(new ErrorDto(null, exception.getMessage(), exception.getErrorCode())));
         return serviceResponse;
     }
 
@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
     public APIResponse<?> handleNotFoundException(NotFoundException exception) {
         APIResponse<?> serviceResponse = new APIResponse<>();
         serviceResponse.setStatus(HttpStatus.BAD_REQUEST.getReasonPhrase());
-        serviceResponse.setErrors(Collections.singletonList(new ErrorDTO(null, exception.getMessage(), exception.getErrorCode())));
+        serviceResponse.setErrors(Collections.singletonList(new ErrorDto(null, exception.getMessage(), exception.getErrorCode())));
         return serviceResponse;
     }
 
@@ -49,7 +49,7 @@ public class GlobalExceptionHandler {
     public APIResponse<?> handleTimeExistException(TimeExistException exception) {
         APIResponse<?> serviceResponse = new APIResponse<>();
         serviceResponse.setStatus(HttpStatus.BAD_REQUEST.getReasonPhrase());
-        serviceResponse.setErrors(Collections.singletonList(new ErrorDTO(null, exception.getMessage(), exception.getErrorCode())));
+        serviceResponse.setErrors(Collections.singletonList(new ErrorDto(null, exception.getMessage(), exception.getErrorCode())));
         return serviceResponse;
     }
 }

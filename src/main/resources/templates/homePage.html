@@ -1,10 +1,645 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <!-- Basic -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Site Metas -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inance</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <!-- font awesome style -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}"/>
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link th:href="@{/css/responsive.css}" rel="stylesheet"/>
+
 </head>
+
 <body>
-$END$
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="header_top">
+            <div class="container-fluid">
+                <div class="contact_nav">
+                    <a href="">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>
+                Call : +8801936622146
+              </span>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span>
+                Email : jingokit@gmail.com
+              </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="index.html">
+              <span>
+                <img src="images/logo--2.png" style="height: 80px; width: 80px;" alt=""/>
+              </span>
+                    </a>
+                    <a class="navbar-brand" href="index.html">
+              <span style="margin-left: 20px;">
+                সেবাই প্রথম
+              </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/home-page}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/about-us}"> About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/service-page}">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/gallery}">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/login}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/guest-registration-page}">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section">
+        <div style="padding-left: 30px; padding-right: 30px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="detail-box animate-left">
+                        <h1 style="font-size: 43pt;">MSI waiter service</h1>
+                        <span><h5>যে কোন ইভেন্টের জন্য যোগ্য ওয়েটার খুঁজে নিন সহজেই!</h5></span>
+                        <br><br>
+                        <p>
+                            আপনার ব্যবসার সফলতা নির্ভর করে আপনার কর্মীদের দক্ষতা ও সেবার মানের ওপর।
+                            আমাদের সফটওয়্যার আপনাকে সাহায্য করবে দ্রুত ও সহজে যোগ্য ওয়েটার খুঁজে পেতে।
+                        </p>
+                        <p>
+                            <b>আমাদের প্ল্যাটফর্ম কেন ব্যবহার করবেন?</b><br>
+                            ১। সময় বাঁচান: দীর্ঘ নিয়োগ প্রক্রিয়ার ঝামেলা ছাড়াই দ্রুত নিয়োগ করুন। <br>
+                            ২। গুণগতমান নিশ্চিত করুন: আমাদের যাচাই করা প্রার্থীদের মধ্যে থেকে সেরা জনকে বেছে নিন। <br>
+                            ৩। নির্ভরযোগ্য সেবা: আপনার সন্তুষ্টি আমাদের অগ্রাধিকার। <br>
+                        <h3>যোগাযোগ করুন:</h3><br>
+                        <h6><b>মোবাইল : +8801936622146</b></h6>
+                        <h6><b>ইমেইল : jingokit@gmail.com</b></h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="img-box animate-up" id="image-slider">
+                        <img id="slider-image" th:src="@{/images/waiterHeaderr-4.png}" alt="Waiter Image"
+                             style="width: 100%; height: auto;"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="detail-box animate-right">
+                        <span><h5>ওয়েটার হিসেবে রেজিস্ট্রেশনের জন্য আমন্ত্রণ</h5></span>
+                        <br><br>
+                        <p>
+                            আপনি কি মানুষের সাথে যোগাযোগ করতে ভালোবাসেন? আপনার হাসিমুখ আর আন্তরিক সেবা দিয়ে আমাদের সাথে
+                            গ্রাহকদের দিনটা আরও সুন্দর করে তুলুন। ঢাকার অন্যতম সেরা ইভেন্ট টিমের অংশ হয়ে একটি উত্তম
+                            কর্মজীবনের
+                            যাত্রা শুরু করুন। <br>
+                        </p>
+                        <b>আপনার পার্টটাইম ইনকামের নতুন সুযোগ</b><br>
+                        আপনি কি ১৮ বছরের বেশি বয়সি এবং পার্টটাইম ইনকাম করতে চান? তাহলে আমাদের সফটওয়্যার আপনার জন্য একদম
+                        পারফেক্ট।<br>
+                        <b>আপনার সেবা কীভাবে কাজ করে?</b><br> <br>
+
+                        <!-- Content -->
+                        <span1 class="animate">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-1-square-fill" viewBox="0 0 16 16">
+                                <path
+                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm7.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
+                            </svg>
+                        </span1>
+                        <b>সহজ রেজিস্ট্রেশন:</b> আপনার তথ্য দিয়ে মাত্র কয়েক মিনিটে রেজিস্ট্রেশন সম্পন্ন করুন।<br/>
+
+                        <span2 class="animate">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-2-square-fill" viewBox="0 0 16 16">
+                                <path
+                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm4.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306"/>
+                            </svg>
+                        </span2>
+                        <b>সেফ এবং সিকিউর:</b> আপনার ব্যক্তিগত তথ্য সুরক্ষিত থাকবে।<br/>
+
+                        <span3 class="animate">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-3-square-fill" viewBox="0 0 16 16">
+                                <path
+                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm5.918 8.414h-.879V7.342h.838c.78 0 1.348-.522 1.342-1.237 0-.709-.563-1.195-1.348-1.195-.79 0-1.312.498-1.348 1.055H5.275c.036-1.137.95-2.115 2.625-2.121 1.594-.012 2.608.885 2.637 2.062.023 1.137-.885 1.776-1.482 1.875v.07c.703.07 1.71.64 1.734 1.917.024 1.459-1.277 2.396-2.93 2.396-1.705 0-2.707-.967-2.754-2.144H6.33c.059.597.68 1.06 1.541 1.066.973.006 1.6-.563 1.588-1.354-.006-.779-.621-1.318-1.541-1.318"/>
+                            </svg>
+                        </span3>
+                        <b>কাজের সুযোগ:</b> বিভিন্ন ইভেন্টে ওয়েটার বা ভলান্টিয়ার হিসেবে কাজের সুযোগ পাবেন।<br/>
+                        <span4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-4-square-fill" viewBox="0 0 16 16">
+                                <path d="M6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218"/>
+                                <path
+                                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm5.519 5.057q.33-.527.657-1.055h1.933v5.332h1.008v1.107H10.11V12H8.85v-1.559H4.978V9.322c.77-1.427 1.656-2.847 2.542-4.265Z"/>
+                            </svg>
+                        </span4>
+                        <b>ইনকাম নিশ্চিত:</b> কাজ শেষে আপনার পারিশ্রমিক সঠিক সময়েই পেয়ে যাবেন।<br/><br>
+
+                        <b> কেন আমাদের বেছে নিবেন?</b> <br>
+                        ১। নিয়মিত কাজের অফার। <br>
+                        ২। কোন ধরণের ঝামেলা ছাড়াই পার্টটাইম ইনকামের সুযোগ। <br>
+                        ৩। রেজিস্ট্রেশনের জন্য কোন চার্জ নেই। <br>
+                        ৪। অভিজ্ঞতা ছাড়াই কাজ শুরু করতে পারবেন। <br><br>
+                        আজই রেজিস্ট্রেশন করুন এবং আপনার পার্টটাইম ইনকাম শুরু করুন! আপনার ভবিষ্যৎ আপনার হাতেই, আমাদের
+                        সাথে জিতুন
+                        নতুন এক অভিজ্ঞতা।
+                        </p>
+                        <p>
+                            <b>আমরা খুঁজছি এমন ব্যক্তিদের, যারা:</b><br>
+                            ১। ঢাকার ভেতরে কাজ করতে আগ্রহী।<br>
+                            ২। বয়স কমপক্ষে ১৮ বছর।<br>
+                            ৩। দায়িত্বশীল, সময়ানুবর্তী, এবং সেবার প্রতি প্রতিশ্রুতিবদ্ধ।
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end slider section -->
+</div>
+<!-- feature section -->
+<section class="feature_section">
+    <div class="container">
+        <div class="feature_container">
+            <div class="box animate-from-left" style="background-color:lavender">
+                <div class="box animate-from-left" style="background-color:red;">
+                    <div>
+                        <h4>
+                            <a href="#" th:href="@{/Regisration.html}" style="color: white;">রেজিস্ট্রেশন করুন</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end feature section -->
+<!-- about section -->
+<section class="about_section layout_padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-6">
+                <div class="detail-box">
+                    <h2 class="animate-right">
+                        About us
+                    </h2>
+                    <p class="animate-left">
+                        আমাদের ওয়েটার সেবা প্ল্যাটফর্ম একটি অত্যাধুনিক ও কার্যকরী ব্যবস্থা, যা আপনাকে সহজেই
+                        যোগ্য এবং দক্ষ ওয়েটার
+                        নিয়োগ করতে সহায়তা করে। আমরা আপনার ব্যবসায়িক সফলতার জন্য সেরা ওয়েটার সরবরাহ করতে
+                        প্রতিশ্রুতিবদ্ধ। আপনি যখন
+                        আমাদের সেবা ব্যবহার করবেন, তখন আপনি পেতে যাচ্ছেন এমন একজন ওয়েটার, যিনি আপনার গ্রাহকদের
+                        জন্য দ্রুত, পেশাদার
+                        এবং আন্তরিক সেবা নিশ্চিত করবেন।
+
+                        আমাদের ওয়েটাররা সবাই নির্ভরযোগ্য, প্রশিক্ষিত এবং কঠোর যাচাই প্রক্রিয়ার মধ্য দিয়ে আসেন।
+                        তারা শুধুমাত্র ফুড
+                        সার্ভিংই নয়, গ্রাহক সেবা, হালকা পরিষ্কার-পরিচ্ছন্নতা, এবং অন্যান্য কাজেও দক্ষ। আমাদের
+                        প্ল্যাটফর্ম আপনাকে
+                        সময় বাঁচাতে সাহায্য করে, দীর্ঘ নিয়োগ প্রক্রিয়ার ঝামেলা ছাড়াই দ্রুত ওয়েটার নিয়োগের সুযোগ
+                        দেয়।
+
+                        বিশেষত ইভেন্টগুলোতে, যেমন বিবাহ, কর্পোরেট পার্টি, সেমিনার বা কনফারেন্সে আমাদের ওয়েটার
+                        সেবা অত্যন্ত
+                        গুরুত্বপূর্ণ। আমাদের ওয়েটাররা প্রতিটি ইভেন্টে সঠিকভাবে এবং দক্ষতার সাথে কাজ করে, যা
+                        আপনার গ্রাহককে
+                        সন্তুষ্ট করে। আমরা বিশ্বাস করি, সঠিক ওয়েটার মানসম্পন্ন সেবা এবং অভিজ্ঞতার দিকে পরিচালিত
+                        করতে সাহায্য করে,
+                        যা আপনার ব্যবসার জন্য অত্যন্ত গুরুত্বপূর্ণ।
+                    </p>
+                    <a href="#" class="animate-right">
+                        Read More
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="img-box slideshow-container">
+                    <div class="slide">
+                        <img th:src="@{/images/waiter-1.jpg}" alt="Image 1">
+
+                    </div>
+                    <div class="slide">
+                        <img th:src="@{/images/waiter-2.jpg}" alt="Image 2">
+                    </div>
+                    <div class="slide">
+                        <img th:src="@{/images/waiter-3.jpg}" alt="Image 3">
+                    </div>
+                    <div class="slide">
+                        <img th:src="@{/images/waiter-4.jpg}" alt="Image 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end about section -->
+
+
+<!-- professional section -->
+<section class="professional_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img th:src="@{/images/services-1.png}" alt="" class="animate">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <h2 class="animate">
+                        পেশাদার ওয়েটার সেবা - আপনার প্রয়োজন, আমাদের দায়িত্ব
+                    </h2>
+                    <p class="animate">
+                        আমরা পেশাদার ওয়েটার সার্ভিস প্রদান করি, যা আপনার অতিথিদের জন্য সেরা অভিজ্ঞতা নিশ্চিত করবে।
+                        আমাদের অভিজ্ঞ
+                        এবং প্রশিক্ষিত ওয়েটাররা দ্রুত এবং কার্যকরীভাবে আপনার প্রয়োজনীয়তা পূরণ করবে। সব ধরনের খাবার সেবা
+                        থেকে শুরু
+                        করে অতিথিদের জন্য উপযুক্ত পরিবেশন—আমরা নিশ্চিত করি যে আপনার হোটেল বা রেস্তোরাঁয় অতীত সেবার কোন
+                        খামতি থাকবে
+                        না। আমাদের ওয়েটাররা সর্বদা সবার সঙ্গে সদ্ভাব বজায় রেখে কাজ করে, যাতে আপনার অতিথিরা সেরা সেবা
+                        পায়।
+                    </p>
+                    <a href="#" th:href="@{/Gallery.html}" class="animate">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end professional section -->
+
+<!-- service section -->
+<section class="service_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>আমাদের সেবা সমুহ</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 mx-auto">
+                <div class="box animate-on-scroll">
+                    <div class="img-box">
+                        <img th:src="@{/images/logo-p1.png}" alt="" style="height: 100px; width: 100px;"/>
+                    </div>
+                    <div class="detail-box">
+                        <h5>খাবার পরিবেশন</h5>
+                        <p>খাবার পরিবেশন, টেবিল ব্যবস্থাপনা, এবং সম্পূর্ণ সার্ভিস ওয়েটাররা দায়িত্ব পালন করবে।</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mx-auto">
+                <div class="box animate-on-scroll">
+                    <div class="img-box">
+                        <img th:src="@{/images/tableclinning-Photoroom.png}" alt=""/>
+                    </div>
+                    <div class="detail-box">
+                        <h5>টেবিল ক্লিনিং</h5>
+                        <p>টেবিল পরিষ্কার এবং সুষ্ঠুভাবে নতুন গ্রাহকদের জন্য প্রস্তুত রাখা।</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mx-auto">
+                <div class="box animate-on-scroll">
+                    <div class="img-box">
+                        <img th:src="@{/images/heliping-Photoroom.png}" alt=""/>
+                    </div>
+                    <div class="detail-box">
+                        <h5>পরিবেশন সহায়ক কর্মী</h5>
+                        <p>ওয়েটারদের সহায়তায় হেলপাররা রান্নাঘর এবং সার্ভিস স্টেশনের মধ্যে সমন্বয় করে কাজ করেন।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-box">
+            <a href="#" th:href="@{/service.html}">View More</a>
+        </div>
+    </div>
+</section>
+<!-- end service section -->
+
+<!-- start client section -->
+<section class="client_section">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                What Our Clients Say
+            </h2>
+        </div>
+        <div class="carousel-wrap layout_padding2-top">
+            <div class="owl-carousel">
+                <div class="item">
+                    <div class="box">
+                        <div class="client_id">
+                            <div class="img-box">
+                                <img th:src="@{/images/man-1.webp}" alt="">
+                            </div>
+                            <div class="client_detail">
+                                <div class="client_info">
+                                    <h6>
+                                        আব্দুল আওয়াল
+                                    </h6>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="client_text">
+                            <p>
+                                সার্ভিসটি খুবই সন্তোষজনক, ওয়েটাররা পেশাদার এবং আন্তরিক। আমি ভবিষ্যতে আরো সেবা নিতে চাই।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="client_id">
+                            <div class="img-box">
+                                <img th:src="@{/images/wmen-3.jpg}" alt="">
+                            </div>
+                            <div class="client_detail">
+                                <div class="client_info">
+                                    <h6>
+                                        রেহেনা পারভিন
+                                    </h6>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="client_text">
+                            <p>
+                                অনেক ভালো অভিজ্ঞতা, খুবই আন্তরিক সেবা এবং সময়মতো কাজ সম্পন্ন হয়েছে।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="client_id">
+                            <div class="img-box">
+                                <img th:src="@{/images/man1-3.jpg}" alt="">
+                            </div>
+                            <div class="client_detail">
+                                <div class="client_info">
+                                    <h6>
+                                        নাজিবুর রহমান
+                                    </h6>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="client_text">
+                            <p>
+                                অত্যন্ত দক্ষ এবং দ্রুত সেবা। আমার ইভেন্টে ওয়েটাররা খুবই ভালো কাজ করেছে।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="client_id">
+                            <div class="img-box">
+                                <img th:src="@{/images/man-6.jpg}" alt="">
+                            </div>
+                            <div class="client_detail">
+                                <div class="client_info">
+                                    <h6>
+                                        শরীফ হোসেন
+                                    </h6>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="client_text">
+                            <p>
+                                এটি একটি অত্যন্ত নির্ভরযোগ্য সেবা, যা সময় বাঁচাতে সাহায্য করে এবং দক্ষ কর্মী সরবরাহ করে।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end client section -->
+
+    <button id="scrollBottomBtn">↓</button>
+
+
+    <!-- Scroll to Top Button -->
+<button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+<!-- Scroll to Bottom Button -->
+
+<!-- contact section -->
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="contactForm">
+                    <div>
+                        <input type="text" id="name" placeholder="Name" required/>
+                    </div>
+                    <div>
+                        <input type="text" id="phone" placeholder="Phone Number" required/>
+                    </div>
+                    <div>
+                        <input type="email" id="email" placeholder="Email" required/>
+                    </div>
+                    <div>
+                        <input type="text" class="message-box" id="message" placeholder="Message" required/>
+                    </div>
+                    <div class="d-flex">
+                        <button type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="map_container">
+                    <div class="map">
+                        <div id="googleMap" style="width:100%;height:100%;"></div>
+
+                        <script
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=initMap"
+                                async defer></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end contact section -->
+
+<!-- Success/Failure Popup -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span id="popupMessage"></span>
+        <button id="popupClose" onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<!-- info section -->
+<section class="info_section">
+    <div class="container">
+        <h4>
+            Get In Touch
+        </h4>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="info_items">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box ">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        87-92/B,Green Road, Farmgate, Dhaka, Bangladesh
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box ">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        +8801936622146
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="">
+                                <div class="item ">
+                                    <div class="img-box">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        jingokit@gmail.com
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="social-box">
+            <h4>Follow Us</h4>
+            <div class="box">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+</section>
+
+<!-- end info_section -->
+
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <p>
+            &copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> All Rights Reserved By
+            <a href="https://www.jingokit.com">JingoKit</a>
+        </p>
+
+
+    </div>
+</footer>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel/dist/assets/owl.theme.default.min.css">
+
+<!-- footer section -->
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/owl.carousel/dist/owl.carousel.min.js"></script>
+<script th:src="@{/js/custom.js}"></script>
+<!-- Google Map -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+<!-- End Google Map -->
+
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </body>
+
 </html>

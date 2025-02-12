@@ -1,0 +1,33 @@
+
+     /* Make the layout more responsive */
+@media screen and (max-width: 768px) {
+    section {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .group-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    ul {
+        padding-left: 10px;
+    }
+
+    .group-delete-button form {
+        margin-bottom: 20px;
+    }
+
+    .member-delete-button form {
+        margin: 0;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+}

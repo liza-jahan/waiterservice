@@ -1,34 +1,43 @@
-// Get Current Year
-function getCurrentYear() {
-    const d = new Date();
-    document.querySelector("#displayDateYear").innerText = d.getFullYear();
-}
-getCurrentYear()
-
-//client section owl carousel
-$(".owl-carousel").owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: true,
-    dots: false,
-    navText: [
-        '<i class="fa fa-long-arrow-left" aria-hidden="true"></i>',
-        '<i class="fa fa-long-arrow-right" aria-hidden="true"></i>'
-    ],
-    autoplay: true,
-    autoplayHoverPause: true,
-    responsive: {
-        0: {
-            items: 1
-        },
-        768: {
-            items: 2
-        },
-        1000: {
-            items: 2
+$(document).ready(function () {
+    // Get Current Year
+    function getCurrentYear() {
+        const yearElement = document.querySelector("#displayDateYear");
+        if (yearElement) {
+            yearElement.innerText = new Date().getFullYear();
+        } else {
+            console.error("Element with id 'displayDateYear' not found.");
         }
     }
+    getCurrentYear();
+
+
+    // Initialize Owl Carousel
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ]
+        ,
+        autoplay: true,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1000: {
+                items: 2
+            }
+        }
+    });
 });
+
 
 /** google_map js **/
 

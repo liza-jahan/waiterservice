@@ -1,2 +1,4 @@
-package com.example.waiterservice.response;public class UserResponse {
+package com.example.waiterservice.model.response;
+
+public class UserResponse {
 }

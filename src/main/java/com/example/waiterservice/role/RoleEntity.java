@@ -1,4 +1,4 @@
-package com.example.waiterservice.model.entity;
+package com.example.waiterservice.role;
 
 import com.example.waiterservice.userRegistration.UserEntity;
 import jakarta.persistence.*;

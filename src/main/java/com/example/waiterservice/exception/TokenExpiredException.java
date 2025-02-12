@@ -1,4 +1,4 @@
-package com.example.deviceshop.exception;
+package com.example.waiterservice.exception;
 
 public class TokenExpiredException extends RuntimeException{
     public TokenExpiredException(String message, Throwable cause) {

@@ -1,4 +1,4 @@
-package group;
+package com.example.waiterservice.group;
 
 import com.example.waiterservice.userRegistration.UserEntity;
 import jakarta.persistence.*;

@@ -1,10 +1,347 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <!-- Basic -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Site Metas -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inance</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <!-- font awesome style -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}"/>
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link th:href="@{/css/responsive.css}" rel="stylesheet"/>
+
 </head>
+
 <body>
-$END$
+<div class="hero_area">
+    <!-- header section starts -->
+    <header class="header_section">
+        <div class="header_top">
+            <div class="container-fluid">
+                <div class="contact_nav">
+                    <a href="tel:+8801936622146">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>
+                  Call : +8801936622146
+                </span>
+                    </a>
+                    <a href="mailto:jingokit@gmail.com">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span>
+                  Email : jingokit@gmail.com
+                </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="@{/index}">
+                <span>
+                 <img th:src="@{/images/logo--2.png}" style="height: 80px; width: 80px;" alt="">
+                </span>
+                    </a>
+                    <a class="navbar-brand" href="@{/index}">
+                <span style="margin-left: 20px;">
+                  সেবাই প্রথম
+                </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/home-page}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/about-us}"> About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/service-page}">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/gallery}">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/login}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/guest-registration-page}">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+</div>
+
+<!-- service section -->
+
+<section class="service_section layout_padding">
+    <div class="container ">
+        <div class="heading_container heading_center">
+            <h2> আমাদের সেবা সমুহ</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 mx-auto">
+                <div class="box animate-on-scroll">
+                    <div class="img-box">
+                        <img th:src="@{/images/logo-p1.png}" alt="" style="height: 100px; width: 100px;"/>
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            খাবার পরিবেশন
+                        </h5>
+                        <p>
+                            খাবার পরিবেশন, টেবিল ব্যবস্থাপনা, এবং সম্পূর্ণ সার্ভিস ওয়েটাররা দায়িত্ব পালন করবে।
+                            <!-- টেবিল সেটআপ এবং সাজসজ্জা।খাবার শেষে টেবিল পরিষ্কার করা এবং নতুন করে সেটআপ করা। -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mx-auto">
+                <div class="box animate-on-scroll">
+                    <div class="img-box">
+                        <img th:src="@{/images/tableclinning-Photoroom.png}" alt=""/>
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            টেবিল ক্লিনিং
+                        </h5>
+                        <p>
+                            টেবিল পরিষ্কার এবং সুষ্ঠুভাবে নতুন গ্রাহকদের জন্য প্রস্তুত রাখা।
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mx-auto">
+                <div class="box animate-on-scroll">
+                    <div class="img-box">
+                        <img th:src="@{/images/heliping-Photoroom.png}" alt=""/>
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            পরিবেশন সহায়ক কর্মী
+                            <!-- সার্ভিস কো-অর্ডিনেশন সাপোর্ট  -->
+                        </h5>
+                        <p>
+                            ওয়েটারদের সহায়তায় হেলপাররা রান্নাঘর এবং সার্ভিস স্টেশনের মধ্যে সমন্বয় করে কাজ করেন।
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+
+    <!-- event start -->
+
+    <div style="padding: 40px; text-align: justify;">
+        <div class="row">
+            <div class="col-8">
+                <h2><span><img th:src="@{/images/logo-p1.png}" alt="" style="width: 60px; height: 60px;"></span><b>খাবার
+                    পরিবেশন:</b></h2><br>
+                <p><b>খাবার পরিবেশন সেবার মূল লক্ষ্য:</b></p>
+                <p>ওয়েটাররা গ্রাহকদের টেবিলে খাবার পরিবেশনের দায়িত্ব পালন করে। তারা খাবারের গুণগত মান বজায় রেখে সঠিকভাবে
+                    গ্রাহকদের সন্তুষ্টি নিশ্চিত করে।</p>
+                <p><b>সেবা কার্যক্রম:</b></p>
+                <ul>
+                    <li><p><b>খাবার পরিবেশন:</b>গ্রাহকের পছন্দ অনুযায়ী খাবার পরিবেশিত করা।</p></li>
+                    <li><p><b>পরিষেবা নিশ্চিতকরণ:</b>খাবার পরিবেশনের পরে গ্রাহকের প্রয়োজনীয়তা এবং সন্তুষ্টি নিশ্চিত করা।
+                    </p></li>
+                </ul>
+                <p>বিয়ের অনুষ্ঠান, কর্পোরেট ইভেন্ট বা বড় কোনো সমাবেশে বিশেষ পরিবেশনার জন্য প্রশিক্ষিত কর্মী।</p><br>
+            </div>
+            <div class="col-4">
+                <div class="img-box slideshow-container">
+                    <div class="slide">
+                        <img th:src="@{/images/waiter-1.jpg}" alt="Image 1">
+                    </div>
+                    <!-- <div class="slide">
+                      <img src="images\waiter-2.jpg" alt="Image 2">
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="padding: 40px; text-align: justify;">
+        <div class="row">
+            <div class="col-8">
+                <h2><span><img th:src="@{/images/tableclinning-Photoroom.png}" alt=""
+                               style="width: 50px; height: 50px;"><b>টেবিল ক্লিনিং </b> </span></h2><br>
+                <p><b>টেবিল পরিষ্কার সেবার মূল লক্ষ্য:</b>পরিষ্কার-পরিচ্ছন্নতা বজায় রাখা এবং গ্রাহকদের আরামদায়ক পরিবেশ
+                    নিশ্চিত করা। </p>
+                <p><b>সেবা কার্যক্রম:</b></p>
+                <ul>
+                    <li><p>খাবারের পরে টেবিল পরিষ্কার করা</p></li>
+                    <li><p>টেবিল স্যানিটাইজেশন </p></li>
+                    <li><p>পরিত্যক্ত জিনিসপত্র সরানো</p></li>
+                </ul>
+                <br>
+            </div>
+            <div class="col-4">
+                <div class="img-box slideshow-container">
+
+                    <div class="slide">
+                        <img th:src="@{/images/waiter-3.jpg}" alt="Image 3">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="padding: 40px; text-align: justify;">
+        <div class="row">
+            <div class="col-8">
+                <h2><span><img th:src="@{/images/heliping-Photoroom.png}" alt="" style="width: 50px; height: 50px;"
+                               src=""><b>পরিবেশন সহায়ক কর্মী </b>
+                </span></h2><br>
+                <p><b>পরিবেশন সহায়ক কর্মীর মূল দায়িত্ব:</b>ওয়েটারদের পাশাপাশি কাজ করে পরিষেবা দ্রুত ও সুষ্ঠুভাবে
+                    পরিচালনা করা। </p>
+                <p><b>সেবা কার্যক্রম:</b></p>
+                <ul>
+                    <li><p>খাবার পরিবেশনে সহায়তা</p></li>
+                    <li><p>পরিষ্কার-পরিচ্ছন্নতায় সহায়তা </p></li>
+                    <li><p>খাবার শেষ হলে দ্রুত পুনরায় পরিবেশনের জন্য প্রস্তুত রাখা।</p></li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <div class="img-box slideshow-container">
+                    <div class="slide">
+
+                        <img th:src="@{/images/waiter-2.jpg}" alt="Image 2">
+                    </div>
+                    <!-- <div class="slide">
+                      <img src="images\waiter-2.jpg" alt="Image 2">
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- event end -->
+
+
+</section>
+
+<!-- end service section -->
+
+
+<!-- info section -->
+<section class="info_section">
+    <div class="container">
+        <h4>
+            Get In Touch
+        </h4>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="info_items">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="https://www.google.com/maps">
+                                <div class="item">
+                                    <div class="img-box">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        Lorem Ipsum is simply dummy text
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="tel:+021234567890">
+                                <div class="item">
+                                    <div class="img-box">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        +02 1234567890
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="mailto:demo@gmail.com">
+                                <div class="item">
+                                    <div class="img-box">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    </div>
+                                    <p>
+                                        demo@gmail.com
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="social-box">
+        <h4>
+            Follow Us
+        </h4>
+        <div class="box">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <p>
+            &copy; <span id="displayDateYear"></span> All Rights Reserved By
+            <a href="https://html.design/">Free Html Templates</a>
+        </p>
+    </div>
+</footer>
+<!-- footer section -->
+
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script th:src="@{/js/custom.js}"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+<!-- End Google Map -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </body>
+
 </html>

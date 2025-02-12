@@ -1,4 +1,4 @@
-package com.example.deviceshop.exception;
+package com.example.waiterservice.exception;
 
 public class TimeExistException extends BaseException{
     public TimeExistException(String message, Throwable ex, String errorCode) {

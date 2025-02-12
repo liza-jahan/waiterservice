@@ -1,0 +1,250 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Profile Section */
+.ddd {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.profile-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Profile Card */
+.profile-card {
+    text-align: center;
+}
+
+#profileTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Profile Image */
+.profile-image-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    color: white;
+}
+
+.image-input {
+    display: none;
+}
+
+#imageLabel {
+    cursor: pointer;
+    color: snow;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+/* Profile Information Section */
+.profile-info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.profile-info-item {
+    width: 48%;
+    margin-bottom: 15px;
+}
+
+.profile-info-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.profile-info-item span {
+    font-size: 1rem;
+    color: #333;
+}
+
+.edit-form input,
+.edit-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Edit Button */
+#editButton {
+    padding: 10px 20px;
+    background-color: snow;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Action Buttons (Submit/Cancel) */
+#actionButtons {
+    margin-top: 20px;
+}
+
+#submitButton,
+#cancelButton {
+    padding: 10px 20px;
+    background-color: white;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#cancelButton {
+    background-color: #e53935;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .profile-info-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-info-item {
+        width: 100%;
+    }
+
+    #profileImage {
+        width: 120px;
+        height: 120px;
+    }
+
+    #profileTitle {
+        font-size: 1.5rem;
+    }
+
+    #editButton {
+        width: 100%;
+    }
+
+    #submitButton,
+    #cancelButton {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profile-container {
+        padding: 15px;
+    }
+
+    #profileTitle {
+        font-size: 1.25rem;
+    }
+
+    #profileImage {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-info-item label {
+        font-size: 0.9rem;
+    }
+
+    .profile-info-item span {
+        font-size: 0.9rem;
+    }
+
+    #editButton {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+/* Profile Image Section */
+.profile-image-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image-change-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-color:white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hidden file input */
+.image-input {
+    display: none;
+}
+
+/* On hover, the icon changes */
+.image-change-icon:hover {
+    background-color: snow;
+}
+.profile-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-change-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.image-input {
+    display: none;
+}
+
