@@ -38,7 +38,7 @@ public class UserEntity extends BaseEntity {
 
     //    @ManyToMany(mappedBy = "users")
 //    private Set<GroupEntity> groups = new HashSet<>();
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),

@@ -26,45 +26,11 @@ import java.util.stream.Collectors;
 public class AuthenticationServiceImp implements AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
-    @Value(ApplicationConstantsUtils.JWT_SECRET_DEFAULT_VALUE)
+
+    @Value("${jwt.secret}")
     private String jwtSecretValue;
     private  final UserRepository userRepository;
 
-//    @Override
-//    public String loginUser(AuthenticationRequest authRequest) {
-//        try {
-//            // Create an authentication object with the user's credentials
-//            Authentication authentication = new UsernamePasswordAuthenticationToken(
-//                    authRequest.email(), authRequest.password());
-//
-//            Authentication authenticationResponse = authenticationManager.authenticate(authentication);
-//
-//            if (authenticationResponse.isAuthenticated()) {
-//                UserEntity user = userRepository.findByEmail(authRequest.email())
-//                        .orElseThrow(() -> new RuntimeException("User not found"));
-//                SecretKey secretKey = Keys.hmacShaKeyFor(jwtSecretValue.getBytes(StandardCharsets.UTF_8));
-//
-//                return Jwts.builder()
-//                        .setIssuer("Waiter Service")
-//                        .setSubject("JWT token")
-//                        .claim("id", user.getId())  // Include ID in JWT
-//                        .claim("username", authenticationResponse.getName())
-//                        .claim("username", user.getName())
-//                        .claim("email", user.getEmail())
-//                        .claim("authorities", authenticationResponse.getAuthorities().stream()
-//                                .map(GrantedAuthority::getAuthority)
-//                                .collect(Collectors.joining(",")))
-//                        .setIssuedAt(new Date())
-//                        .setExpiration(new Date((new Date()).getTime() + 30000000))
-//                        .signWith(secretKey)
-//                        .compact();
-//            }
-//        } catch (AuthenticationException e) {
-//            throw new RuntimeException("Invalid credentials", e);
-//        }
-//
-//        return null;
-//    }
 @Override
 public AuthenticationResponse loginUser(AuthenticationRequest authRequest) {
     try {
@@ -80,16 +46,24 @@ public AuthenticationResponse loginUser(AuthenticationRequest authRequest) {
 
             SecretKey secretKey = Keys.hmacShaKeyFor(jwtSecretValue.getBytes(StandardCharsets.UTF_8));
 
+            String roles = authentication.getAuthorities().stream()
+                    .map(GrantedAuthority::getAuthority)
+                    .collect(Collectors.joining(","));
+
             // ✅ Generate JWT Token
             String jwtToken = Jwts.builder()
                     .setIssuer("Waiter Service")
                     .setSubject("JWT token")
+                   // .claim("roles",roles)
                     .claim("id", user.getId()) // ✅ Include User ID from DB
                     .claim("username", user.getName())
                     .claim("email", user.getEmail())
-                    .claim("authorities", authentication.getAuthorities().stream()
+//                    .claim("authorities", authentication.getAuthorities().stream()
+//                            .map(GrantedAuthority::getAuthority)
+//                            .collect(Collectors.joining(",")))
+                    .claim("roles", authentication.getAuthorities().stream()
                             .map(GrantedAuthority::getAuthority)
-                            .collect(Collectors.joining(",")))
+                            .collect(Collectors.toList()))
                     .setIssuedAt(new Date())
                     .setExpiration(new Date(System.currentTimeMillis() + 30000000))
                     .signWith(secretKey)

@@ -51,7 +51,7 @@ public class ThymeleafController {
         // model.addAttribute("userRequest", new UserRegistrationRequest());
         return "homePage";
     }
-    @PreAuthorize("hasRole('ADMIN')")
+  //  @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/user-info-table")
     public String getDashboardPage(Model model) {
         List<UserEntity> userEntities = userService.getAllUser();
@@ -97,7 +97,7 @@ public class ThymeleafController {
     public String showResetPasswordPage() {
         return "resetPasswordPage";
     }
-   @PreAuthorize("hasRole('ADMIN')")
+  // @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/show-group-list")
     public String showGroups(Model model) {
         List<GroupEntity> groups =  groupService.getAllGroupsWithMembers();
@@ -109,7 +109,7 @@ public class ThymeleafController {
         return "aboutUs";
     }
     // Show create group form
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/create")
     public String showCreateGroupForm(Model model) {
         model.addAttribute("group", new GroupEntity());
@@ -124,7 +124,7 @@ public class ThymeleafController {
         groupService.createGroup(groupName, userIds);
         return "redirect:/userinfoTable";
     }
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/delete-group")
     public String deleteGroup(@RequestParam UUID groupId) {
         groupService.deleteGroup(groupId);
@@ -134,6 +134,7 @@ public class ThymeleafController {
 
 
     // Handle adding a user to a group
+   // @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{groupName}/add-user")
     public String addUserToGroup(@PathVariable String groupName, @RequestParam UUID userId) {
         groupService.addUserToGroup(groupName, userId);
